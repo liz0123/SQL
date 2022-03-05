@@ -1,2 +1,2 @@
 # SQL
-Project using SQl
+Projects using SQL
