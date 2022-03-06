@@ -1,3 +1,5 @@
+---
+
 #### Scenario:
 
 You are a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director
@@ -6,6 +8,8 @@ your team wants to understand how casual riders and annual members use Cyclistic
 your team will design a new marketing strategy to convert casual riders into annual members. But first, Cyclistic executives
 must approve your recommendations, so they must be backed up with compelling data insights and professional data
 visualizations.
+
+---
 
 #### Ask
 ##### Guiding Questions
@@ -16,7 +20,9 @@ visualizations.
 * How can your insights drive business decisions?
     
     These insights can be use to increase the number of annual memberships furthering the company's success.
-   
+
+---
+
 #### Prepare
 The data has been upload to this folder. The data is ROCCC (reliable, original, comprehensive, current, cited). This is a practice dataset from google 
 making it credibile and the data is limited to times and locations so bias don't play much of a role. 
@@ -27,10 +33,49 @@ which can lead to key differences in annual member vs casual riders.
 
 The data contains the following information:
 
-![Table Schema](schema.png)
+
+---
 
 #### Process
-All data was upload onto BigQuery and clean by checking for duplicates, missing data, and structural errors like  typos, mislabled categories. 
-No errors where found.
+All data was upload onto BigQuery. After expecting the data, there where no duplicates, missing data or structural erros like typos or mislabled categories. However after calulationg the duration for each trip, there were large amount of trips with very short durations. So to only keep serious rider any durations under 5 minutes have been drop. 
 
 Next, I combinded the data to form the following table:
+
+| Coulman Name | Description |
+| ------------ | ----------- |
+| member_casual | Is rider a member or casual rider|
+| started_at | Date and Time trip began|
+| ended_at   | Date and Time trip ended |
+| trip_duration_minutes | Duration of trip in minutes|
+| trip_duration_days   | Duration of trip in days
+| day_of_week | Day of the start of the trip|
+
+In SQL:
+
+```sql
+SELECT *
+FROM 
+    (
+        SELECT 
+            member_casual,
+
+            started_at,
+
+            ended_at,
+
+            DATETIME_DIFF(ended_at, started_at, MINUTE) as trip_duration_minutes,
+
+            DATETIME_DIFF( ended_at, started_at ,DAY) as trip_duration_days,
+
+            EXTRACT(DAYOFWEEK FROM started_at ) as day_of_week,
+
+        FROM `learned-nimbus-333802.Cyclistic.Cyclistic`
+    )
+
+WHERE trip_duration_minutes > 5
+```
+
+---
+
+#### Analyze 
+
