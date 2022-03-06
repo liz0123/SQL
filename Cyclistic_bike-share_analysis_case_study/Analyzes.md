@@ -1,6 +1,6 @@
 ---
 
-#### Scenario:
+### Scenario:
 
 You are a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director
 of marketing believes the company’s future success depends on maximizing the number of annual memberships. Therefore,
@@ -11,7 +11,7 @@ visualizations.
 
 ---
 
-#### Ask
+### Ask
 ##### Guiding Questions
 * What is the problem you are trying to solve?
 
@@ -23,7 +23,7 @@ visualizations.
 
 ---
 
-#### Prepare
+### Prepare
 The data has been upload to this folder. The data is ROCCC (reliable, original, comprehensive, current, cited). This is a practice dataset from google 
 making it credibile and the data is limited to times and locations so bias don't play much of a role. 
 However keeping the overall goal in mind, the data doesn't take into account things like rider's financail needs 
@@ -33,10 +33,26 @@ which can lead to key differences in annual member vs casual riders.
 
 The data contains the following information:
 
+|  Field Name | Type|
+| -------- | ------| 
+| ride_id | STRING |
+| rideable_type | STRING |
+| started_at | TIMESTAMP |
+| ended_at | TIMESTAMP |
+| start_station_name | STRING |
+| start_station_id | STRING |
+| end_station_name | STRING |
+| end_station_id | STRING |
+| start_lat | FLOAT |
+| start_lng | FLOAT |
+| end_lat | FLOAT |
+| end_lng | FLOAT |
+| member_casual | STRING |
+
 
 ---
 
-#### Process
+### Process
 All data was upload onto BigQuery. After expecting the data, there where no duplicates, missing data or structural erros like typos or mislabled categories. However after calulationg the duration for each trip, there were large amount of trips with very short durations. So to only keep serious rider any durations under 5 minutes have been drop. 
 
 Next, I combinded the data to form the following table:
@@ -77,5 +93,5 @@ WHERE trip_duration_minutes > 5
 
 ---
 
-#### Analyze 
+### Analyze 
 
