@@ -27,18 +27,10 @@ which can lead to key differences in annual member vs casual riders.
 
 The data contains the following information:
 
-* ride_id : string
-* rideable_type : string
-* started_at : time (yyyy/dd/mm hh:mm:ss )
-* ended_at : time (yyyy/dd/mm hh:mm:ss )
-* start_station_name : string
-* start_station_id : string
-* end_station_name : string
-* end_station_id :string
-* start_lat : float
-* start_lng : float
-* end_lat : float
-* end_lng : float
-* member_casual: string (casual or member)
+![Table Schema](schema.png)
 
 #### Process
+All data was upload onto BigQuery and clean by checking for duplicates, missing data, and structural errors like  typos, mislabled categories. 
+No errors where found.
+
+Next, I combinded the data to form the following table:
