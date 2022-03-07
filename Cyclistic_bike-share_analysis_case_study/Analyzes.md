@@ -15,21 +15,21 @@ visualizations.
 ##### Guiding Questions
 * What is the problem you are trying to solve?
 
-    The goal is to identify differences in how casual riders and annual members use Cyclistic's bikes in the hopes to get casual rider to become members.
+    The goal is to identify differences in how casual riders and annual members use Cyclistic's bikes in hopes of getting casual riders to become members.
     
 * How can your insights drive business decisions?
     
-    These insights can be use to increase the number of annual memberships furthering the company's success.
+    These insights can be used to increase the number of annual memberships furthering the company's success.
 
 ---
 
 ### Prepare
-The data has been upload to this folder. The data is ROCCC (reliable, original, comprehensive, current, cited). This is a practice dataset from google 
-making it credibile and the data is limited to times and locations so bias don't play much of a role. 
-However keeping the overall goal in mind, the data doesn't take into account things like rider's financail needs 
+The data has been uploaded to this folder. The data is ROCCC (reliable, original, comprehensive, current, cited). This is a practice dataset from google 
+making it credibile and the data is limited to times and locations so bias doesn't play much of a role. 
+However keeping the overall goal in mind, the data doesn't take into account things like rider's financial needs 
 which would play a large role in increasing memberships. 
-On the over hand, this data can provide key insights where and for how long the riders use the bikes 
-which can lead to key differences in annual member vs casual riders. 
+On the other hand, this data can provide key insights into where and for how long the riders use the bikes 
+which can lead to key differences in annual members vs casual riders. 
 
 The data contains the following information:
 
@@ -53,7 +53,7 @@ The data contains the following information:
 ---
 
 ### Process
-All data was upload onto BigQuery. After expecting the data, there where no duplicates, missing data or structural erros like typos or mislabled categories. However after calulationg the duration for each trip, there were large amount of trips with very short durations. So to only keep serious rider any durations under 5 minutes have been drop. 
+All data was uploaded onto BigQuery. After inspecting the data there were no duplicates, missing data or structural errors like typos or mislabled categories. However, after calulationg the duration for each trip there was a large amount of trips with very short durations. So to only keep serious riders any time durations under 5 minutes have been droped. 
 
 Next, I combinded the data to form the following table:
 
